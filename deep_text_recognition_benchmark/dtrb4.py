@@ -85,19 +85,16 @@ class DTRB:
         
     def predict(self, image):
         transform = transforms.Compose([
-            transforms.ToTensor(),
-            transforms.Normalize(0.5, 0.5)
+            transforms.ToTensor()
             ])
 
         # predict
         self.model.eval()
         with torch.no_grad():
             image_tensor = transform(image) 
-            # image_tensor = image_tensor.sub_(0.5).div_(0.5)
+            image_tensor = image_tensor.sub_(0.5).div_(0.5)
             image_tensor = torch.unsqueeze(image_tensor, 0)     #output: [1, 1, 32, 100]
-            print(image_tensor.shape)
-            image_tensor = torch.permute(image_tensor, (0, 1, 3, 2))
-            print(image_tensor.shape)
+
             # for image_tensors, image_path_list in self.demo_loader:
             batch_size = image_tensor.size(0)
             image = image_tensor.to(self.device)
