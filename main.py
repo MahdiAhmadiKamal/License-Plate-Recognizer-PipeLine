@@ -1,7 +1,7 @@
 import argparse
 import cv2
 from ultralytics import YOLO
-from deep_text_recognition_benchmark.dtrb4 import DTRB
+from deep_text_recognition_benchmark.dtrb import DTRB
 
 
 parser = argparse.ArgumentParser()
