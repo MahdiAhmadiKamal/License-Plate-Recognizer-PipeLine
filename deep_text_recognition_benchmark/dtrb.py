@@ -103,6 +103,7 @@ class DTRB:
                 log.write(f'{img_name:25s}\t{pred:25s}\t{confidence_score:0.4f}\n')
 
             log.close()
+        return pred
 
             
 if __name__ == "__main__":
