@@ -30,7 +30,7 @@ parser.add_argument('--hidden_size', type=int, default=256, help='the size of th
 parser.add_argument('--detector_weight', type=str, default="weights/yolov8-detector/yolov8s-license-plate-detector.pt")
 parser.add_argument('--recognizer_weight', type=str, default="weights/dtrb-recognizer/dtrb-TPS-ResNet-BiLSTM-Attn-license-plate-recognizer.pth")
 parser.add_argument('--input_image', type=str, default="io/input/IMG_5178.JPG")
-parser.add_argument('--threshold', type=float, default=0.5)
+parser.add_argument('--threshold', type=float, default=0.3)
 
 opt = parser.parse_args()
 
@@ -44,6 +44,7 @@ results = plate_detector.predict(image)
 for result in results:
     for i in range(len(result.boxes.xyxy)):
         if result.boxes.conf[i] > opt.threshold:
+            print("CONFIDENCE:",result.boxes.conf[i])
             bbox_tensor = result.boxes.xyxy[i]
             bbox_ndarray = bbox_tensor.cpu().detach().numpy().astype(int)
             print(bbox_ndarray)
