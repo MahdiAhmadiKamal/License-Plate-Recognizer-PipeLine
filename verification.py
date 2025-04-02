@@ -66,4 +66,13 @@ for result in results:
 cv2.imwrite("io\output\image_result.jpg", image)
 
 
+database = Database()
+plates = database.get_data()
 
+for plate in plates:
+    if SequenceMatcher(None, str(plate), str(predicted_label)).ratio() > 0.7:
+        print("YES")
+        break
+    else:
+        print("NO")
+        break
