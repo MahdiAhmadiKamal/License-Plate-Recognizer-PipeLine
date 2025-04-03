@@ -61,24 +61,24 @@ for result in results:
             plate_image = cv2.resize(plate_image, (100, 32))
             plate_image = cv2.cvtColor(plate_image, cv2.COLOR_BGR2GRAY)
             predicted_labels = plate_recognizer.predict(plate_image, opt)
-            print(predicted_labels)
+            # print("PLs:", predicted_labels)
 
 cv2.imwrite("io\output\image_result.jpg", image)
 
 
 database = Database()
 plates = database.get_data()
-
+# plates_list =[]
+flag = False
 for plate in plates:
     plate = plate[0]
-    similarity = SequenceMatcher(None, str(plate), str(predicted_labels)).ratio()
-
-    print(similarity)
+    # plates_list.append(plate)
+    similarity = SequenceMatcher(None, plate, str(predicted_labels)).ratio()
     if similarity > 0.7:
-        # print(similarity)
-        print("Verified ✅")
-        # break
-    else:
-        # print(similarity)
-        print("Not Verified ❌")
-        # break
+        print("Similarity:",similarity)
+        flag = True
+
+if flag == True:
+    print("Verified ✅")
+else:
+    print("Not Verified ❌")
