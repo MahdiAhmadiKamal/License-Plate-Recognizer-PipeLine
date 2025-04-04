@@ -4,7 +4,7 @@
 
 This repository is a supplement to my previous repository, [Persian-License-Plate-Recognition](https://github.com/MahdiAhmadiKamal/Persian-License-Plate-Recognition). In this repository, the process of recognizing license plates is got streamlined thanks to the pipeline. By giving the picture to the code, the text of the license plates in the picture will be directly recognized. This project is prepared with the aid of [deep-text-recognition-benchmark](https://github.com/clovaai/deep-text-recognition-benchmark) repository. This repository consists of two parts: **identification** and **verification**.
 
-<img src="pics\2.jpg" width="600">
+<img src="pics\2.jpg" width="500">
 
 A [pretrained model](https://drive.google.com/drive/folders/15WPsuPJDCzhp2SvYZLRj8mAlT3zmoAMW) is selected and fine-tuned on a Persian license plates dataset called [IR-LPR](https://github.com/mut-deep/IR-LPR?tab=readme-ov-file). The data are labeled according to the following table.
 
