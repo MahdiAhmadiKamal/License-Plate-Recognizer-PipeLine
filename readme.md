@@ -67,7 +67,7 @@ This section is related to recognizing and verifying the persian license plates.
 
 ### How to run
 + Similar to the previous section download the pre-trained weights.
-+ Store the license plates in the database according to the aforementioned table.
++ Store the license plates in the database file according to the aforementioned table.
 + Place your input images in io/input.
 
 + Run this command:
